@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="modelo.Endereco"  table="endereco">
+		<id name="idEndereco" 			type="java.lang.Integer" 	column="idEndereco"></id>
+		<property name="logradouro" 	type="java.lang.String" 	column="logradouro" 	not-null="true" />
+		<property name="complemento" 	type="java.lang.String" 	column="complemento" 	not-null="true" />
+		<property name="bairro" 		type="java.lang.String" 	column="bairro" 		not-null="true" />
+		<property name="cep" 			type="java.lang.String" 	column="cep" 			not-null="true" />
+	
+		<many-to-one name="municipio" 
+			class="modelo.Municipio" 
+			column="idMunicipio" 
+			foreign-key="FKMunicipio"
+			index="FKMunicipio"
+			insert="true"
+			update="true"
+			fetch="join"
+			not-null="true" >
+		</many-to-one>
+	</class>
+</hibernate-mapping>

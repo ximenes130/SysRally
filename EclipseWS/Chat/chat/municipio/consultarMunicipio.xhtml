@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Consulta de Municipio</title>
+	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+<ui:include src="../cabecalho.xhtml"></ui:include>
+<h:body>
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="4">
+				<f:facet name="header">
+					<h:outputText value="Consulta de Município" styleClass="emphasis" />
+				</f:facet>
+
+				<h:outputLabel id="idMunicipioLabel" value="IdMunicipio:"
+					for="idMunicipioCampo" />
+
+				<h:panelGroup>
+					<h:inputText id="idMunicipioCampo"
+						value="#{municipioBean.registro.idMunicipio}" size="10"
+						maxlength="10" required="true"
+						requiredMessage="Idenfificador obrigatório."
+						converterMessage="Identificador deve ser um valor numérico.">
+						<f:converter converterId="javax.faces.Integer" />
+					</h:inputText>
+					<h:message for="idMunicipioCampo" showSummary="true"
+						showDetail="false" />
+				</h:panelGroup>
+
+				<h:commandButton id="consultar" value="Consultar"
+					action="#{municipioBean.consultar}" type="submit" />
+				<h:commandButton id="limpar" value="Limpar" type="reset" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="3">
+				<h:panelGrid columns="2">
+					<h:outputText value="Id do Municipio: "
+						rendered="#{municipioBean.registro.idMunicipio != null}" />
+					<h:outputText value="#{municipioBean.registro.idMunicipio}"
+						rendered="#{municipioBean.registro.idMunicipio != null}" />
+					<h:outputText value="Nome do Municipio: "
+						rendered="#{municipioBean.registro.idMunicipio != null}" />
+					<h:outputText value="#{municipioBean.registro.nomeMunicipio}"
+						rendered="#{municipioBean.registro.idMunicipio != null}" />
+					<h:outputText value="UF do Municipio: "
+						rendered="#{municipioBean.registro.idMunicipio != null}" />
+					<h:outputText value="#{municipioBean.registro.ufMunicipio} "
+						rendered="#{municipioBean.registro.idMunicipio != null}" />
+					<h:outputText value="Habitantes: "
+						rendered="#{municipioBean.registro.idMunicipio != null}" />
+					<h:outputText value="#{municipioBean.registro.habitantes}"
+						rendered="#{municipioBean.registro.idMunicipio != null}" />
+				</h:panelGrid>
+
+				<h:graphicImage value="/imagem/AC.png"
+					rendered="#{mun.ufMunicipio eq 'AC'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/AL.png"
+					rendered="#{mun.ufMunicipio eq 'AL'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/AP.png"
+					rendered="#{mun.ufMunicipio eq 'AP'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/AM.png"
+					rendered="#{mun.ufMunicipio eq 'AM'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/BA.png"
+					rendered="#{mun.ufMunicipio eq 'BA'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/CE.png"
+					rendered="#{mun.ufMunicipio eq 'CE'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/DF.png"
+					rendered="#{mun.ufMunicipio eq 'DF'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/ES.png"
+					rendered="#{mun.ufMunicipio eq 'ES'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/GO.png"
+					rendered="#{mun.ufMunicipio eq 'GO'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/MA.png"
+					rendered="#{mun.ufMunicipio eq 'MA'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/MT.png"
+					rendered="#{mun.ufMunicipio eq 'MT'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/MS.png"
+					rendered="#{mun.ufMunicipio eq 'MS'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/MG.png"
+					rendered="#{mun.ufMunicipio eq 'MG'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/PA.png"
+					rendered="#{mun.ufMunicipio eq 'PA'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/PB.png"
+					rendered="#{mun.ufMunicipio eq 'PB'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/PE.png"
+					rendered="#{mun.ufMunicipio eq 'PE'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/PI.png"
+					rendered="#{mun.ufMunicipio eq 'PI'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/RJ.png"
+					rendered="#{mun.ufMunicipio eq 'RJ'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/RN.png"
+					rendered="#{mun.ufMunicipio eq 'RN'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/RS.png"
+					rendered="#{mun.ufMunicipio eq 'RS'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/RO.png"
+					rendered="#{mun.ufMunicipio eq 'RO'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/RR.png"
+					rendered="#{mun.ufMunicipio eq 'RR'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/SC.png"
+					rendered="#{mun.ufMunicipio eq 'SC'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/SP.png"
+					rendered="#{mun.ufMunicipio eq 'SP'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/SE.png"
+					rendered="#{mun.ufMunicipio eq 'SE'}" width="22" height="16"
+					style="border: inset;" />
+				<h:graphicImage value="/imagem/TO.png"
+					rendered="#{mun.ufMunicipio eq 'TO'}" width="22" height="16"
+					style="border: inset;" />
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</h:body>
+<ui:include src="../rodape.xhtml"></ui:include>
+</html>

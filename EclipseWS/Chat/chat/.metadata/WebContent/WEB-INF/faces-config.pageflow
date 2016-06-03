@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14129790922250" configfile="/JEE_JSF/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="338" y="178" id="pf14129791225501" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" outlinks="pf14129791225502 pf14129791225503" inlinks="pf14129791225503 pf14129791225504 pf14129792984718 pf14129792984719 pf141297947045912 pf141297947045913 pf141297965506417 pf141297969958618 pf141297977739920" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="entrada.xhtml" x="122" y="178" id="pf14129791225506" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14129791225504" inlinks="pf14129791225502" path="/entrada.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf141297929847110" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14129792984718 pf141297965506417 pf141297977739920" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="municipio/incluirMunicipio.xhtml" id="pf141297929847111" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf14129792984719" path="/municipio/incluirMunicipio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="municipio/alterarMunicipio.xhtml" id="pf141297947045915" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf141297947045912" path="/municipio/alterarMunicipio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="municipio/excluirMunicipio.xhtml" id="pf141297947045916" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf141297947045913" path="/municipio/excluirMunicipio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="municipio/consultarMunicipio.xhtml" id="pf141297969958619" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf141297969958618" path="/municipio/consultarMunicipio.xhtml"/>
+  <links id="pf14129791225502" target="pf14129791225506" source="pf14129791225501" outcome="sucesso" redirect="true" fromaction="#{acessoBean.login}"/>
+  <links id="pf14129791225504" target="pf14129791225501" source="pf14129791225506" outcome="insucesso" redirect="true" fromaction="#{acessoBean.logout}"/>
+  <links id="pf14129791225503" target="pf14129791225501" source="pf14129791225501" outcome="insucesso" fromaction="#{acessoBean.login}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf14129792984718" target="pf14129791225501" source="pf141297929847110" outcome="insucesso" redirect="true"/>
+  <links id="pf14129792984719" target="pf14129791225501" source="pf141297929847111" outcome="insucesso" redirect="true" fromaction="#{municipioBean.incluir}"/>
+  <links id="pf141297947045912" target="pf14129791225501" source="pf141297947045915" outcome="insucesso" redirect="true" fromaction="#{municipioBean.alterar}"/>
+  <links id="pf141297947045913" target="pf14129791225501" source="pf141297947045916" outcome="insucesso" redirect="true" fromaction="#{municipioBean.excluir}"/>
+  <links id="pf141297965506417" target="pf14129791225501" source="pf141297929847110" outcome="insucesso" redirect="true"/>
+  <links id="pf141297969958618" target="pf14129791225501" source="pf141297969958619" outcome="insucesso" redirect="true" fromaction="#{municipioBean.consultar}"/>
+  <links id="pf141297977739920" target="pf14129791225501" source="pf141297929847110" outcome="insucesso" redirect="true" fromaction="#{listaTudoMunicipioBean.listarTudo}"/>
+</pageflow:Pageflow>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+<h:body styleClass="body">
+   	<h:graphicImage value="/imagem_chat/barra_menu.jpg" width="100%" height="60" z-index="auto"/>
+  	<f:view>
+		<h:form>
+			<p:menubar styleClass="emphasis">
+				<p:menuitem icon="ui-icon-home" value="Home" url="/faces/entrada.xhtml" styleClass="alerta"/>
+				
+				<p:submenu label="Municipios" icon="ui-icon-gear">
+					<p:menuitem value="Incluir" url="/faces/municipio/incluirMunicipio.xhtml" />
+					<p:menuitem value="Alterar" url="/faces/municipio/alterarMunicipio.xhtml" />
+					<p:menuitem value="Excluir" url="/faces/municipio/excluirMunicipio.xhtml" />
+					<p:menuitem value="Consultar" url="/faces/municipio/consultarMunicipio.xhtml" />
+					<p:menuitem value="Listar" url="/faces/municipio/listarMunicipios.xhtml" />
+					<p:menuitem value="Filtrar"	url="/faces/municipio/listarMunicipiosFiltro.xhtml" />
+				</p:submenu>
+				
+				<p:submenu label="Endereços" icon="ui-icon-gear">
+					<p:menuitem value="Incluir" url="/faces/endereco/incluiEndereco.xhtml" />
+					<p:menuitem value="Alterar" url="/faces/endereco/alterarEndereco.xhtml" />
+					<p:menuitem value="Excluir" url="/faces/endereco/excluirEndereco.xhtml" />
+					<p:menuitem value="Consultar" url="/faces/endereco/consultarEndereco.xhtml" />
+					<p:menuitem value="Listar" url="/faces/endereco/listarEnderecos.xhtml" />
+				</p:submenu>
+				
+				<p:submenu label="Pessoas" icon="ui-icon-gear">
+					<p:menuitem value="Incluir" url="/faces/pessoa/incluirPessoa.xhtml" />
+					<p:menuitem value="Alterar" url="/faces/pessoa/alterarPessoa.xhtml" />
+					<p:menuitem value="Excluir" url="/faces/pessoa/excluirPessoa.xhtml" />
+					<p:menuitem value="Consultar" url="/faces/pessoa/consultarPessoa.xhtml" />
+					<p:menuitem value="Listar" url="/faces/pessoa/listarPessoas.xhtml" />
+				</p:submenu>
+				
+				<p:submenu label="CHAT" icon="ui-icon-gear">
+					<p:menuitem value="Entrar" url="/faces/chat/master.xhtml" />
+				</p:submenu>
+				
+				<p:menuitem value="Sair (#{acessoBean.email})" icon="ui-icon-extlink" action="#{acessoBean.logout}" styleClass="alerta"/>
+			
+			</p:menubar>
+			<br></br>
+		</h:form>
+	</f:view>
+   	<h:outputLink value="../index.html"><h:graphicImage value="/imagem_chat/home-icon2.png" styleClass="icone-superior-direito" /></h:outputLink>
+   	<h:graphicImage value="/imagem_chat/chat1-icon.png" styleClass="icone-superior-esquerdo"/>
+</h:body>
+</html>

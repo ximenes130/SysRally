@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Inclusão de Município</title>
+	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+<ui:include src="../cabecalho.xhtml"></ui:include>
+<h:body>
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="2">
+				<f:facet name="header">
+					<h:outputText value="Inclusão de Município" styleClass="emphasis" />
+				</f:facet>
+
+				<h:outputLabel id="idMunicipioLabel" value="IdMunicipio: " for="idMunicipioCampo" />
+
+				<h:panelGroup>
+					<h:inputText id="idMunicipioCampo"
+						value="#{municipioBean.registro.idMunicipio}" size="10"
+						maxlength="10" required="true"
+						requiredMessage="Idenfificador obrigatório."
+						converterMessage="Identificador deve ser um valor numérico.">
+						<f:converter converterId="javax.faces.Integer" />
+					</h:inputText>
+					<h:message for="idMunicipioCampo" showSummary="true"
+						showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="NomeLabel" value="Nome: " for="NomeCampo" />
+
+				<h:panelGroup>
+					<h:inputText id="NomeCampo"
+						value="#{municipioBean.registro.nomeMunicipio}" size="40"
+						maxlength="40" required="true"
+						requiredMessage="O nome é obrigatório." />
+					<h:message for="NomeCampo" showSummary="true" showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="HabitantesLabel" value="Habitantes: " for="HabitantesCampo" />
+
+				<h:panelGroup>
+					<h:inputText id="HabitantesCampo"
+						value="#{municipioBean.registro.habitantes}"
+						size="10" maxlength="10" required="true"
+						requiredMessage="O número é obrigatório."
+						validatorMessage="O número deve estar no intervalo [1000, 9999999999].">
+						<f:converter converterId="javax.faces.Integer" />
+						<f:validateLongRange minimum="1000" maximum="9999999999" />
+					</h:inputText>
+					<h:message for="HabitantesCampo" showSummary="true"	showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="UFLabel" value="UF: " for="UFCampo" />
+				
+				<h:panelGroup>
+					<h:selectOneMenu id="UFCampo"
+						value="#{municipioBean.registro.ufMunicipio}" required="true">
+						<f:selectItem itemValue="AC" itemLabel="AC - Acre" />
+						<f:selectItem itemValue="AL" itemLabel="AL - Alagoas" />
+						<f:selectItem itemValue="AP" itemLabel="AP - Amapá" />
+						<f:selectItem itemValue="AM" itemLabel="AM - Amazonas" />
+						<f:selectItem itemValue="BA" itemLabel="BA - Bahia" />
+						<f:selectItem itemValue="CE" itemLabel="CE - Ceará" />
+						<f:selectItem itemValue="DF" itemLabel="DF - Distrito Federal" />
+						<f:selectItem itemValue="ES" itemLabel="ES - Espírito Santo" />
+						<f:selectItem itemValue="GO" itemLabel="GO - Goiás" />
+						<f:selectItem itemValue="MA" itemLabel="MA - Maranhão" />
+						<f:selectItem itemValue="MT" itemLabel="MT - Mato Grosso" />
+						<f:selectItem itemValue="MS" itemLabel="MS - Mato Grosso do Sul" />
+						<f:selectItem itemValue="MG" itemLabel="MG - Minas Gerais" />
+						<f:selectItem itemValue="PA" itemLabel="PA - Paraná" />
+						<f:selectItem itemValue="PB" itemLabel="PB - Paraíba" />
+						<f:selectItem itemValue="PE" itemLabel="PE - Pernanbuco" />
+						<f:selectItem itemValue="PI" itemLabel="PI - Piauí" />
+						<f:selectItem itemValue="RJ" itemLabel="RJ - Rio de Janeiro" />
+						<f:selectItem itemValue="RN" itemLabel="RN - Rio Grande do Norte" />
+						<f:selectItem itemValue="RS" itemLabel="RS - Rio Grande do Sul" />
+						<f:selectItem itemValue="RO" itemLabel="RO - Rondonia" />
+						<f:selectItem itemValue="RR" itemLabel="RR - Roraima" />
+						<f:selectItem itemValue="SC" itemLabel="SC - Santa Catarina" />
+						<f:selectItem itemValue="SP" itemLabel="SP - São Paulo" />
+						<f:selectItem itemValue="SE" itemLabel="SE - Sergipe" />
+						<f:selectItem itemValue="TO" itemLabel="TO - Tocantins" />
+					</h:selectOneMenu>
+
+					<h:graphicImage value="/imagem/bandeira.png" width="22" height="16" />
+				</h:panelGroup>
+
+				<h:commandButton id="incluir" value="Incluir"
+					action="#{municipioBean.incluir}" type="submit" />
+				<h:commandButton id="limpar" value="Limpar" type="reset" />
+
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</h:body>
+<ui:include src="../rodape.xhtml"></ui:include>
+</html>

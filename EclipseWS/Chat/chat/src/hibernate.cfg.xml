@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?><!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+<property name="hibernate.connection.url">jdbc:mysql://localhost/mydb</property>
+<property name="hibernate.connection.username">root</property>
+<property name="hibernate.connection.password">root</property>
+<property name="hibernate.connection.autocommit">false</property>
+
+<!-- Ativa a atualização do banco de dados com base nas classes POJO -->
+<property name="hibernate.hbm2ddl.auto">update</property> 
+
+<!-- Ativa o segundo nível de cache do hibernate -->
+<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+<!-- Não utilizado na versão 4.1 do Hibernate
+<property name="hibernate.cache.provider_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property> 
+-->
+
+<!-- Ativa o gerenciamento por POOL de conexões com SGBD -->
+<!-- <property name="hibernate.connection.pool_size">5</property>  -->
+<property name="hibernate.c3p0.min_size">1</property>
+<property name="hibernate.c3p0.max_size">2</property>
+<property name="hibernate.c3p0.timeout">300</property>
+<property name="hibernate.c3p0.max_statements">50</property>
+<property name="hibernate.c3p0.idle_test_period">3000</property>
+<property name="hibernate.c3p0.acquire_increment">2</property>
+
+<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+<property name="hibernate.show_sql">false</property>
+<property name="hibernate.format_sql">false</property>
+<property name="hibernate.generate_statistics">false</property>
+<property name="hibernate.use_sql_comments">false</property>
+
+<mapping class="modelo.Municipio" />
+<mapping class="modelo.Endereco" />
+<mapping class="modelo.Pessoa" />
+<mapping class="modelo.Convite" />
+<mapping class="modelo.Conversa" />
+<mapping class="modelo.Mensagem" />
+<mapping class="modelo.Empregado" />
+<mapping class="modelo.Acesso" />
+ </session-factory>
+ </hibernate-configuration>

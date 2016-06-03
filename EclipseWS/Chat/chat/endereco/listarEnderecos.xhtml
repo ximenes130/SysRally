@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Listagem de Endereco</title>
+	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+<ui:include src="../cabecalho.xhtml"></ui:include>
+<h:body>
+	<f:view>
+		<h:form>
+		<h:panelGrid columns="1">
+			<f:facet name="header"> <h:outputText value="Listagem de Enderecos" styleClass="emphasis" /></f:facet>
+			
+			<h:dataTable var="end" value="#{listaTudoEnderecoBean.listagem}" styleClass="tabela">
+			
+				<h:column><f:facet name="header"><h:outputText value="Id." styleClass="emphasis-tabela" /></f:facet>			<h:outputText value="#{end.idEndereco}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="Logradouro" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{end.logradouro}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="Complemento" styleClass="emphasis-tabela" /></f:facet>	<h:outputText value="#{end.complemento}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="Bairro" styleClass="emphasis-tabela" /></f:facet>			<h:outputText value="#{end.bairro}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="CEP" styleClass="emphasis-tabela" /></f:facet>			<h:outputText value="#{end.cep}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="Municipio" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{end.municipio}" /></h:column>
+			
+			</h:dataTable>
+		</h:panelGrid>
+		</h:form>
+	</f:view>
+</h:body>
+<ui:include src="../rodape.xhtml"></ui:include>
+</html>

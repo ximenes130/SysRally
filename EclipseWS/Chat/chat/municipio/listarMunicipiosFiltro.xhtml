@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Listagem de Municipios com filtro</title>
+	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+<ui:include src="../cabecalho.xhtml"></ui:include>
+<h:body>
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="4">
+				<f:facet name="header">
+					<h:outputText value="Listagem de Município com filtro"
+						styleClass="emphasis" />
+				</f:facet>
+
+				<h:outputLabel id="filtroLabel" value="filtro:" for="filtroCampo" />
+				<h:panelGroup>
+					<h:inputText id="filtroCampo"
+						value="#{listaLikeMunicipioBean.filtro}" size="30" maxlength="30"
+						required="true" requiredMessage="Idenfificador obrigatório." />
+					<h:message for="filtroCampo" showSummary="true" showDetail="false" />
+				</h:panelGroup>
+
+				<h:commandButton id="listar" value="Listar"
+					actionListener="#{listaLikeMunicipioBean.listarLike}" type="submit" />
+
+			</h:panelGrid>
+
+			<h:panelGrid columns="1">
+
+				<h:dataTable var="mun" value="#{listaLikeMunicipioBean.listagem}"
+					styleClass="tabela">
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Id." styleClass="emphasis-tabela" />
+						</f:facet>
+						<h:outputText value="#{mun.idMunicipio}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Nome" styleClass="emphasis-tabela" />
+						</f:facet>
+						<h:outputText value="#{mun.nomeMunicipio}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Hab." styleClass="emphasis-tabela" />
+						</f:facet>
+						<h:outputText value="#{mun.habitantes}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="UF" styleClass="emphasis-tabela" />
+						</f:facet>
+						<h:outputText value="#{mun.ufMunicipio} " />
+
+						<h:graphicImage value="/imagem/AC.png"
+							rendered="#{mun.ufMunicipio eq 'AC'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/AL.png"
+							rendered="#{mun.ufMunicipio eq 'AL'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/AP.png"
+							rendered="#{mun.ufMunicipio eq 'AP'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/AM.png"
+							rendered="#{mun.ufMunicipio eq 'AM'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/BA.png"
+							rendered="#{mun.ufMunicipio eq 'BA'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/CE.png"
+							rendered="#{mun.ufMunicipio eq 'CE'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/DF.png"
+							rendered="#{mun.ufMunicipio eq 'DF'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/ES.png"
+							rendered="#{mun.ufMunicipio eq 'ES'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/GO.png"
+							rendered="#{mun.ufMunicipio eq 'GO'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/MA.png"
+							rendered="#{mun.ufMunicipio eq 'MA'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/MT.png"
+							rendered="#{mun.ufMunicipio eq 'MT'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/MS.png"
+							rendered="#{mun.ufMunicipio eq 'MS'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/MG.png"
+							rendered="#{mun.ufMunicipio eq 'MG'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/PA.png"
+							rendered="#{mun.ufMunicipio eq 'PA'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/PB.png"
+							rendered="#{mun.ufMunicipio eq 'PB'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/PE.png"
+							rendered="#{mun.ufMunicipio eq 'PE'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/PI.png"
+							rendered="#{mun.ufMunicipio eq 'PI'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/RJ.png"
+							rendered="#{mun.ufMunicipio eq 'RJ'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/RN.png"
+							rendered="#{mun.ufMunicipio eq 'RN'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/RS.png"
+							rendered="#{mun.ufMunicipio eq 'RS'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/RO.png"
+							rendered="#{mun.ufMunicipio eq 'RO'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/RR.png"
+							rendered="#{mun.ufMunicipio eq 'RR'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/SC.png"
+							rendered="#{mun.ufMunicipio eq 'SC'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/SP.png"
+							rendered="#{mun.ufMunicipio eq 'SP'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/SE.png"
+							rendered="#{mun.ufMunicipio eq 'SE'}"
+							styleClass="icone-bandeiras" />
+						<h:graphicImage value="/imagem/TO.png"
+							rendered="#{mun.ufMunicipio eq 'TO'}"
+							styleClass="icone-bandeiras" />
+					</h:column>
+				</h:dataTable>
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</h:body>
+<ui:include src="../rodape.xhtml"></ui:include>
+</html>

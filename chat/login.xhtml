@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"	xmlns:ui="http://java.sun.com/jsf/facelets"	xmlns:h="http://java.sun.com/jsf/html"	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<title>Pagina de Login</title>
+<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+<h:body styleClass="body">
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="2">
+			
+				<f:facet name="header">
+					<h:outputText value="Identifique-se:" styleClass="emphasis" />
+				</f:facet>
+				
+				<h:outputLabel id="emailLabel" value="Email: " for="email" />
+				<h:panelGroup>
+					<h:inputText id="email" value="#{acessoBean.email}" size="50" maxlength="50" required="true" requiredMessage="e-mail é obrigatório." />
+					<h:message for="email" showSummary="true" showDetail="false" />
+				</h:panelGroup>
+				
+				<h:outputLabel id="senhaLabel" value="Senha: " for="senha" />
+				<h:panelGroup>
+					<h:inputSecret id="senha" value="#{acessoBean.senha}" size="8"	maxlength="8" required="true" requiredMessage="A senha é obrigatório." />
+					<h:message for="senha" showSummary="true" showDetail="false" />
+				</h:panelGroup>
+				
+				<h:commandButton id="login" value="Entrar" action="#{acessoBean.login}" />
+				
+				<h:commandButton id="limpar" value="Limpar" type="reset" />
+			
+			</h:panelGrid>
+			
+			<h:panelGrid columns="1">
+				
+				<h:outputLink value="../index.html"><h:graphicImage value="/imagem_chat/home-icon2.png" width="50" height="50" styleClass="sem-borda"/></h:outputLink>
+				
+				<h:outputText value="#{acessoBean.mensagemUsuario}"	rendered="#{acessoBean.mensagemUsuario != null}" />
+				
+				<h:messages layout="table" errorStyle="color: red" infoStyle="color: green" warnStyle="color: orange" fatalStyle="color: gray" showDetail="false" />
+				
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</h:body>
+</html>

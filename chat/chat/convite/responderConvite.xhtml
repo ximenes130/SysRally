@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../master.xhtml">
+
+	<ui:define name="tituloTamplate">Registrar Convite</ui:define>
+	
+	<ui:define name="conteudo">
+		<h:form>
+			<h:panelGrid columns="2">
+			
+				<f:facet name="header">
+					<h:outputText value="Responder Convite" styleClass="emphasis" />
+				</f:facet>
+				
+				<h:outputText value="Nome:"	rendered="#{responderConviteBean.convite.pessoa2.nome != null}" />
+				<h:outputText value=" #{responderConviteBean.convite.pessoa2.nome}" rendered="#{responderConviteBean.convite.pessoa2.nome != null}" />
+					
+				<h:outputLabel id="ConviteLabel" value="Convites: " for="ConviteCampo" />
+				<h:selectOneListbox id="ConviteCampo" size="5" value="#{responderConviteBean.idSelecionado}" required="true">
+					<f:selectItems value="#{responderConviteBean.listaSelectItem}" />
+				</h:selectOneListbox>
+
+				<h:commandButton id="aceitar" value="Aceitar" actionListener="#{responderConviteBean.aceitar}"  type="submit"/>
+				<h:commandButton id="nãoaceitar" value="Não Aceitar" actionListener="#{responderConviteBean.naoaceitar}"  type="submit"/>
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+</html>

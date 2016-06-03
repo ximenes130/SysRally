@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Alteracao de Pessoa</title>
+	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+<ui:include src="../cabecalho.xhtml"></ui:include>
+<h:body>
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="3">
+				<f:facet name="header">
+					<h:outputText value="Alterar de Pessoa" styleClass="emphasis" />
+				</f:facet>
+
+				<h:outputLabel value="IdPessoa: " for="idPessoaCampo"
+					id="idPessoaLabel" />
+
+				<h:panelGroup>
+					<h:inputText id="idPessoaCampo"
+						value="#{pessoaBean.registro.idPessoa}" size="10" maxlength="10"
+						required="true" requiredMessage="O identificador  obrigatrio."
+						converterMessage="Identificador deve ser um valor numerico.">
+						<f:converter converterId="javax.faces.Integer" />
+					</h:inputText>
+					<h:message for="idPessoaCampo" showSummary="true"
+						showDetail="false" />
+				</h:panelGroup>
+
+				<h:commandButton id="buscar" value="Buscar"
+					actionListener="#{pessoaBean.consultar}" type="submit" />
+
+			</h:panelGrid>
+			<h:panelGrid columns="2">
+
+				<h:outputLabel id="idNomeLabel" value="Nome: " for="idNomeCampo" />
+
+				<h:panelGroup>
+					<h:inputText id="idNomeCampo" value="#{pessoaBean.registro.nome}"
+						size="45" maxlength="45" required="true"
+						requiredMessage="O nome a obrigatario." />
+					<h:message for="idNomeCampo" showSummary="true" showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="idCPFLabel" value="CPF: " for="idCPFCampo" />
+
+				<h:panelGroup>
+					<h:inputText id="idCPFCampo" value="#{pessoaBean.registro.cpf}"
+						size="12" maxlength="12" required="true"
+						requiredMessage="O cpf é obrigatario."
+						validatorMessage="O cpf deve ter 11 caracteres.">
+						<f:validateLength minimum="11" maximum="11" />
+					</h:inputText>
+					<h:message for="idCPFCampo" showSummary="true" showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="idRGLabel" value="RG: " for="idRGCampo" />
+
+				<h:panelGroup>
+					<h:inputText id="idRGCampo" value="#{pessoaBean.registro.rg}"
+						size="15" maxlength="15" required="true"
+						requiredMessage="O RG a obrigatario." />
+					<h:message for="idRGCampo" showSummary="true" showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="idOrgaoLabel" value="argao: " for="idOrgaoCampo" />
+
+				<h:panelGroup>
+					<h:inputText id="idOrgaoCampo"
+						value="#{pessoaBean.registro.orgaoExpedicao}" size="5"
+						maxlength="5" required="true"
+						requiredMessage="O argao a obrigatario."
+						validatorMessage="O cpf deve ter 5 caracteres.">
+						<f:validateLength minimum="5" maximum="5" />
+					</h:inputText>
+					<h:message for="idOrgaoCampo" showSummary="true" showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="idDataLabel" value="Nascimento(dd/mm/aaaa): "
+					for="idDataCampo" />
+
+				<h:panelGroup>
+					<h:inputText id="idDataCampo"
+						value="#{pessoaBean.registro.dataNascimento}" size="10"
+						maxlength="10" required="true"
+						requiredMessage="A data a obrigatario."
+						converterMessage="A data deve ter o formato dd/MM/yyyy.">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:inputText>
+					<h:message for="idDataCampo" showSummary="true" showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="idTelefoneLabel" value="Telefone: "
+					for="idTelefoneCampo" />
+
+				<h:panelGroup>
+					<h:inputText id="idTelefoneCampo"
+						value="#{pessoaBean.registro.telefone}" size="12" maxlength="12"
+						required="true" requiredMessage="O telefone a obrigatario." />
+					<h:message for="idTelefoneCampo" showSummary="true"
+						showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="EnderecoLabel" value="Endereco: "
+					for="EnderecoCampo" />
+
+				<h:selectOneListbox id="EnderecoCampo" size="5"
+					value="#{pessoaBean.idSelecionado}" required="true">
+					<f:selectItems value="#{pessoaBean.listaSelectItem}" />
+				</h:selectOneListbox>
+
+				<h:commandButton id="alterar" value="Alterar"
+					actionListener="#{pessoaBean.alterar}" type="submit" />
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</h:body>
+<ui:include src="../rodape.xhtml"></ui:include>
+</html>

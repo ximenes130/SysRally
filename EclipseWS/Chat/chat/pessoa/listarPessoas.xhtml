@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Listagem de Pessoas</title>
+	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+<ui:include src="../cabecalho.xhtml"></ui:include>
+<h:body>
+	<f:view>
+		<h:form>
+		<h:panelGrid columns="1">
+			<f:facet name="header">	<h:outputText value="Listagem de Pessoas" styleClass="emphasis" /></f:facet>
+			
+			<h:dataTable var="pes" value="#{listaTudoPessoaBean.listagem}" styleClass="tabela">
+			
+				<h:column><f:facet name="header"><h:outputText value="Id." styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{pes.idPessoa}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="Nome" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{pes.nome}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="CPF" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{pes.cpf}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="RG" styleClass="emphasis-tabela" /></f:facet>			<h:outputText value="#{pes.rg}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="Orgao" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{pes.orgaoExpedicao}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="Nascimento" styleClass="emphasis-tabela" /></f:facet>	<h:outputText value="#{pes.dataNascimento}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="Telefone" styleClass="emphasis-tabela" /></f:facet>	<h:outputText value="#{pes.telefone}" /></h:column>
+				<h:column><f:facet name="header"><h:outputText value="Endereco" styleClass="emphasis-tabela" /></f:facet>	<h:outputText value="#{pes.endereco}" /></h:column>
+			
+			</h:dataTable>
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</h:body>
+<ui:include src="../rodape.xhtml"></ui:include>
+</html>

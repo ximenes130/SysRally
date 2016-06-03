@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Exclusão de Endereco</title>
+	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+<ui:include src="../cabecalho.xhtml"></ui:include>
+<h:body>
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="4">
+			
+				<f:facet name="header"> <h:outputText value="Exclusão de Endereco" styleClass="emphasis" /></f:facet>
+				
+				<h:outputLabel value="IdEndereco: " id="idEnderecoLabel" for="idEnderecoCampo" />
+				<h:panelGroup>
+					<h:inputText id="idEnderecoCampo" value="#{enderecoBean.registro.idEndereco}" size="10" maxlength="10" required="true" requiredMessage="Identificador obrigatório."
+						converterMessage="Identificador deve ser um valor numérico.">
+						<f:converter converterId="javax.faces.Integer" />
+					</h:inputText>
+					<h:message for="idEnderecoCampo" showSummary="true"	showDetail="false" />
+				</h:panelGroup>
+				
+				<h:commandButton id="excluir" value="Excluir" actionListener="#{enderecoBean.excluir}"  type="submit" />
+				<h:commandButton id="limpar" value="Limpar" type="reset" />
+				
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</h:body>
+<ui:include src="../rodape.xhtml"></ui:include>
+</html>

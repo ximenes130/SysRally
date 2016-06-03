@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Alteracao de Endereco</title>
+	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+<ui:include src="../cabecalho.xhtml"></ui:include>
+<h:body>
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="3">
+				<f:facet name="header">	<h:outputText value="Alteração de Endereco" styleClass="emphasis" /></f:facet>
+
+				<h:outputLabel value="IdEndereco: " for="idEnderecoCampo" id="idEnderecoLabel" />
+				<h:panelGroup>
+					<h:inputText id="idEnderecoCampo" value="#{enderecoBean.registro.idEndereco}" size="10"	maxlength="10" required="true"	requiredMessage="O identificador é obrigatório."
+						converterMessage="Identificador deve ser um valor numérico.">
+						<f:converter converterId="javax.faces.Integer" />
+					</h:inputText>
+					<h:message for="idEnderecoCampo" showSummary="true"	showDetail="false" />
+				</h:panelGroup>
+				<h:commandButton id="consultar" value="Consultar" actionListener="#{enderecoBean.consultar}"  type="submit"/>
+			</h:panelGrid>
+
+
+			<h:panelGrid columns="2">
+
+				<h:outputLabel id="idLogradouroLabel" value="Logradouro: "
+					for="idLogradouroCampo" />
+				<h:panelGroup>
+					<h:inputText id="idLogradouroCampo"
+						value="#{enderecoBean.registro.logradouro}" size="50"
+						maxlength="50" required="false"
+						converterMessage="Logradouro incorreto." />
+					<h:message for="idLogradouroCampo" showSummary="true"
+						showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="idComplementoLabel" value="Complemento: "
+					for="idComplementoCampo" />
+				<h:panelGroup>
+					<h:inputText id="idComplementoCampo"
+						value="#{enderecoBean.registro.complemento}" size="20"
+						maxlength="20" required="false"
+						converterMessage="Complemento incorreto." />
+					<h:message for="idComplementoCampo" showSummary="true"
+						showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="idBairroLabel" value="Bairro: "
+					for="idBairroCampo" />
+				<h:panelGroup>
+					<h:inputText id="idBairroCampo"
+						value="#{enderecoBean.registro.bairro}" size="40" maxlength="40"
+						required="false" converterMessage="Bairro incorreto." />
+					<h:message for="idBairroCampo" showSummary="true"
+						showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="idCepLabel" value="CEP: " for="idCepCampo" />
+				<h:panelGroup>
+					<h:inputText id="idCepCampo" value="#{enderecoBean.registro.cep}"
+						size="8" maxlength="8" required="false"
+						converterMessage="Identificador incorreto.">
+						<f:converter converterId="javax.faces.Integer" />
+					</h:inputText>
+					<h:message for="idCepCampo" showSummary="true" showDetail="false" />
+				</h:panelGroup>
+
+				<h:outputLabel id="MunicipioLabel" value="Municipio: " for="MunicipioCampo" />
+				<h:selectOneListbox id="MunicipioCampo" size="5" value="#{enderecoBean.idSelecionado}" required="false">
+					<f:selectItems value="#{enderecoBean.listaSelectItem}" />
+				</h:selectOneListbox>
+
+				<h:commandButton id="alterar" value="Alterar" actionListener="#{enderecoBean.alterar}"  type="submit" />
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</h:body>
+<ui:include src="../rodape.xhtml"></ui:include>
+</html>

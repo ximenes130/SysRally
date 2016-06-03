@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="modelo.Pessoa"  table="pessoafisica"  discriminator-value="0">
+
+		<id	name="idPessoa"	type="java.lang.Integer" column="idPessoa"></id>
+		
+		<discriminator column="tipoPessoa" type="java.lang.Integer" />
+		
+		<property name="nome" 			type="java.lang.String" 	column="nome" 									not-null="true" />
+		<property name="telefone" 		type="java.lang.String" 	column="telefone" 								not-null="true" />
+		<property name="dataNascimento" type="java.sql.Date" 		column="dataNascimento" 						not-null="true" />
+		<property name="rg" 			type="java.lang.String" 	column="rg" 									not-null="true" />
+		<property name="orgaoExpedicao" type="java.lang.String" 	column="orgaoExpedicao" 						not-null="true" />
+		<property name="cpf" 			type="java.lang.String" 	column="cpf" index="cpf_UNIQUE" unique="true" 	not-null="true" />
+		
+		<many-to-one name="endereco" 
+			class="modelo.Endereco" 
+			column="idEndereco" 
+			foreign-key="FKEndereco"
+			index="FKEndereco"
+			insert="true"
+			update="true"
+			fetch="join"
+			not-null="true" >
+		</many-to-one>
+		
+		<subclass name="br.ucb.pojo.Empregado"  discriminator-value="1">
+			<property name="ctps" 				type="java.lang.String" 	column="ctps"				not-null="true" />
+			<property name="empresaContratante" type="java.lang.String" 	column="empresaContratante"	not-null="true" />
+			<property name="dataContratacao"  	type="java.util.Calendar" 	column="dataContratacao"	not-null="true" />
+			<property name="dataDemissao"  		type="java.util.Calendar" 	column="dataDemissao"		not-null="true" />
+		</subclass>
+
+	</class>
+</hibernate-mapping>

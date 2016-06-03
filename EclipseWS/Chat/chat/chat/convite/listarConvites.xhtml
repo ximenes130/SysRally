@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../master.xhtml">
+
+	<ui:define name="tituloTamplate">Listagem de Convites</ui:define>
+	
+	<ui:define name="conteudo">
+		
+			<h:panelGrid columns="1">
+			<f:facet name="header">	<h:outputText value="Listagem de Convites Enviados" styleClass="emphasis" /></f:facet>
+				<h:dataTable var="convite" value="#{listarConvitesBean.listagemEnviados}" styleClass="tabela">
+					<h:column><f:facet name="header"><h:outputText value="Nome" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{convite.pessoa1.nome}" /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="CPF" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{convite.pessoa1.cpf} =>> " /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="Nome" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{convite.pessoa2.nome}" /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="CPF" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{convite.pessoa2.cpf}" /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="TS Remessa" styleClass="emphasis-tabela" /></f:facet>	<h:outputText value="#{convite.conviteID.timestampConvite}" /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="TS Aceite" styleClass="emphasis-tabela" /></f:facet> 	<h:outputText value="#{convite.timestampRecebimento}" /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="Aceite" styleClass="emphasis-tabela" /></f:facet> 	<h:outputText value="#{convite.aceiteConvite}" /></h:column>
+				</h:dataTable>
+			</h:panelGrid>
+			<h:panelGrid columns="1">
+				<f:facet name="header">	<h:outputText value="Listagem de Convites Recebidos" styleClass="emphasis" /></f:facet>
+				<h:dataTable var="convidado" value="#{listarConvitesBean.listagemRecebidos}" styleClass="tabela">
+					<h:column><f:facet name="header"><h:outputText value="Nome" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{convidado.pessoa1.nome}" /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="CPF" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{convidado.pessoa1.cpf} =>> " /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="Nome" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{convidado.pessoa2.nome}" /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="CPF" styleClass="emphasis-tabela" /></f:facet>		<h:outputText value="#{convidado.pessoa2.cpf}" /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="TS Remessa" styleClass="emphasis-tabela" /></f:facet>	<h:outputText value="#{convidado.conviteID.timestampConvite}" /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="TS Aceite" styleClass="emphasis-tabela" /></f:facet> 	<h:outputText value="#{convidado.timestampRecebimento}" /></h:column>
+					<h:column><f:facet name="header"><h:outputText value="Aceite" styleClass="emphasis-tabela" /></f:facet> 	<h:outputText value="#{convidado.aceiteConvite}" /></h:column>
+				</h:dataTable>
+			</h:panelGrid>
+						
+	</ui:define>
+
+</ui:composition>
+
+</html>

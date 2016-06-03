@@ -1,0 +1,71 @@
+@CHARSET "ISO-8859-1";
+
+.body {
+	font-style: normal;
+	font-size: 1.0em;
+	background-color: AliceBlue;
+	background-image: url("../imagem_chat/chat_back.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center 150px;
+	background-size:400px 400px;
+	background-origin:content-box;
+}
+
+.emphasis {
+	font-style: normal;
+	font-size: 1.2em;
+	background-color: AliceBlue;
+}
+
+.tabela{
+	table-layout: auto;
+	border-color: transparent;
+	width: 100%;
+	height: 100%;
+}
+
+.emphasis-tabela {
+	font-weight: bold;
+	font-style: italic;
+	font-size: 1.2em;
+	background-color: AliceBlue;
+}
+
+.selected {
+	font-weight: bold;
+	font-style: italic;
+	background-color: AliceBlue;
+}
+
+.alerta {
+	font-style: italic;
+}
+
+.icone-bandeiras {
+	width: 30px;
+	height: 20px;
+	border-color: transparent;
+}
+
+.icone-superior-direito {
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	left: 90%;
+	top: 13px;
+	z-index: 1;
+	border-color: transparent;
+}
+.icone-superior-esquerdo {
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	left: 10px;
+	top: 13px;
+	z-index: 1;
+}
+
+.sem-borda{
+	border-color: transparent;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Consulta de Endereco</title>
+	<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+</h:head>
+<ui:include src="../cabecalho.xhtml"></ui:include>
+<h:body>
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="3">
+				<f:facet name="header">	<h:outputText value="Consulta de Endereco" styleClass="emphasis" /></f:facet>
+				<h:outputLabel value="IdEndereco: " for="idEnderecoCampo" id="idEnderecoLabel" />
+				<h:panelGroup>
+					<h:inputText id="idEnderecoCampo" value="#{enderecoBean.registro.idEndereco}" size="10" maxlength="10" required="true" requiredMessage="O identificador é obrigatório." converterMessage="Identificador deve ser um valor numérico.">
+						<f:converter converterId="javax.faces.Integer" />
+					</h:inputText>
+					<h:message for="idEnderecoCampo" showSummary="true"	showDetail="false" />
+				</h:panelGroup>
+				<h:commandButton id="consultar" value="Consultar" actionListener="#{enderecoBean.consultar}" type="submit"/>
+			</h:panelGrid>
+			<h:panelGrid columns="2">
+				<h:outputText value="IdEndereco:"							rendered="#{enderecoBean.registro.idEndereco != null}" />
+				<h:outputText value=" #{enderecoBean.registro.idEndereco}" 	rendered="#{enderecoBean.registro.idEndereco != null}" />
+				<h:outputText value="Logradouro:"							rendered="#{enderecoBean.registro.idEndereco != null}" />
+				<h:outputText value=" #{enderecoBean.registro.logradouro}" 	rendered="#{enderecoBean.registro.logradouro != null}" />
+				<h:outputText value="Complemento:"							rendered="#{enderecoBean.registro.idEndereco != null}" />
+				<h:outputText value=" #{enderecoBean.registro.complemento}" rendered="#{enderecoBean.registro.complemento != null}" />
+				<h:outputText value="Bairro:"								rendered="#{enderecoBean.registro.idEndereco != null}" />
+				<h:outputText value=" #{enderecoBean.registro.bairro}" 		rendered="#{enderecoBean.registro.bairro != null}" />
+				<h:outputText value="CEP:"									rendered="#{enderecoBean.registro.idEndereco != null}" />
+				<h:outputText value=" #{enderecoBean.registro.cep}"			rendered="#{enderecoBean.registro.cep != null}" />
+				<h:outputText value="Municipio:"							rendered="#{enderecoBean.registro.idEndereco != null}" />
+				<h:outputText value=" #{enderecoBean.registro.municipio}" 	rendered="#{enderecoBean.registro.municipio.idMunicipio != null}" />
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</h:body>
+<ui:include src="../rodape.xhtml"></ui:include>
+</html>
